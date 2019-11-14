@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+      xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/updateBook" method="post">
+    编号:<input type="text"  th:value="${book.id}" name="id"><br>
+    书名:<input type="text"  th:value="${book.bookName} " name="bookName"><br>
+    价格<input type="text"  th:value="${book.bookPrice}" name="bookPrice"><br>
+    <input type="submit" value="Submit">
+</form>
+</body>
+</html>

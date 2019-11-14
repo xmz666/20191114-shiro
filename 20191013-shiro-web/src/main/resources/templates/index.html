@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+      xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+</head>
+<body>
+    <h1>This is Index Page!</h1>
+    <!--
+        显示用户名
+    -->
+    <!--<shiro:principal/>
+    &lt;!&ndash;
+        认证以后的信息
+    &ndash;&gt;
+    <shiro:user/>
+    &lt;!&ndash;
+        游客模式显示的信息
+    &ndash;&gt;
+    <shiro:guest></shiro:guest>
+    &lt;!&ndash;
+        有某一个角色的时候显示的信息
+    &ndash;&gt;
+    <shiro:hasRole></shiro:hasRole>
+    &lt;!&ndash;
+        有某一个权限的时候显示的信息
+    &ndash;&gt;
+    <shiro:hasPermission></shiro:hasPermission>
+    &lt;!&ndash;
+        有很多角色的时候显示的信息
+    &ndash;&gt;
+    <shiro:hasAnyRoles></shiro:hasAnyRoles>
+    &lt;!&ndash;
+        认证成功后
+    &ndash;&gt;
+    <shiro:authenticated></shiro:authenticated>
+    &lt;!&ndash;
+        未认证
+    &ndash;&gt;
+    <shiro:notAuthenticated></shiro:notAuthenticated>-->
+
+
+    <ul>
+        <li shiro:hasRole="book_manager"><a href="/allBooks">图书管理</a></li>
+        <li shiro:hasRole="user_manager"><a href="">用户管理</a></li>
+        <shiro:hasRole name="student_manager">
+            <li><a href="">学生管理</a></li>
+        </shiro:hasRole>
+
+    </ul>
+
+
+</body>
+</html>

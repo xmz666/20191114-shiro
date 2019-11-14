@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+      xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Index</title>
+</head>
+<body>
+    <h1>This is Book Index Page!</h1>
+    <shiro:hasPermission name="book:insert">
+        <h2><a href="/addBook">新增</a></h2>
+    </shiro:hasPermission>
+    <table border="1px solid black">
+        <thead>
+            <tr>
+                <th>图书编号</th>
+                <th>图书名称</th>
+                <th>图书价格</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="book : ${bookList}">
+                <td th:text="${book.id}"></td>
+                <td th:text="${book.bookName}"></td>
+                <td th:text="${book.bookPrice}"></td>
+                <td>
+                    <a shiro:hasPermission="book:update" th:href="@{/toUpdateBookById(id=${book.id})}">修改</a>
+                    &nbsp;&nbsp;|&nbsp;&nbsp;
+                    <a shiro:hasPermission="book:delete" th:href="@{/deleteBookById(id=${book.id})}">删除</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+
+</html>
